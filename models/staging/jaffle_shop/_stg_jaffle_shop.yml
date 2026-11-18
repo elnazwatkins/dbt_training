@@ -1,6 +1,6 @@
 models:
   - name: stg_jaffle_shop__customers
-    descriptions: The grain of this table is one unique customer per row
+    description: The grain of this table is one unique customer per row
     columns:
       - name: customer_id
         description: Primary key for the customers table
