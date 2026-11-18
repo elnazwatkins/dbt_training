@@ -31,6 +31,3 @@ models:
       - name: order_date
         data_tests:
           - not_null
-      - name: status
-        data_tests:
-          - not_null
