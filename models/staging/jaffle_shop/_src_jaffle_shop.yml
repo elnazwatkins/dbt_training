@@ -2,15 +2,28 @@ sources:
   - name: jaffle_shop
     database: raw
     schema: jaffle_shop
-    config:
-      freshness:
-        warn_after: {count: 4, period: day}
-        error_after:
-          count: 5
-          period: day
-      loaded_at_field: _etl_loaded_at
+    description: A clone of a Postgres application sdatabse.
     tables:
       - name: customers
-        config:
-          freshness: null
+        description: Raw customer data.
+        columns: 
+          - name: id
+            description: Primary key for the customer data
+            data_tests:
+              - unique
+              - not_null
       - name: orders
+        description: Raw orders data.
+        columns:
+          - name: id
+            description: Primary key for the order data
+            data_tests:
+              - unique
+              - not_null
+        config:
+          freshness:
+            warn_after: {count: 4, period: day}
+            error_after:
+              count: 5
+              period: day
+          loaded_at_field: _etl_loaded_at
